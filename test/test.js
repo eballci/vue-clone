@@ -5,6 +5,7 @@
  */
 
 import VueClone from "./../src/index"
+import * as Render from "../src/core/render"
 
 it("Did throw error in case of non-String and non-Object element", () => {
     expect(() => {
@@ -59,9 +60,9 @@ it("Did selected proper element", () => {
 })
 
 it("Did render call", () => {
-    const render = jest.spyOn(VueClone.prototype, "render")
+    const renderMock = jest.spyOn(Render, "render")
     new VueClone({ el: document.body })
-    expect(render).toBeCalled()
+    expect(renderMock).toBeCalled()
 })
 
 it("Did single arithmetic expression evaluate", () => {
@@ -107,4 +108,15 @@ it("Did multiple props of data bind", () => {
         },
     })
     expect(document.body.innerHTML).toBe("Hello, John Doe!")
+})
+
+it("Did v-if work", () => {
+    document.body.innerHTML = `<div v-if="show"></div><div v-if="!show"></div>`
+    new VueClone({
+        el: "body",
+        data: {
+            show: true,
+        },
+    })
+    expect(document.body.innerHTML).toBe("<div></div>")
 })

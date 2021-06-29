@@ -18,7 +18,7 @@ module.exports = {
                 "allowTemplateLiterals": true
             }
          ],
-        "brace-style": [ "error", "stroustrup" ],
+        "brace-style": [ "error", "1tbs" ],
         "block-spacing": [ "error", "always" ],
         "max-len": [
             "error",

@@ -4,6 +4,8 @@
  * found in https://opensource.org/licenses/MIT
  */
 
+import { render } from "./core/render"
+
 class VueClone {
     constructor(options) {
         this.options = options
@@ -16,7 +18,7 @@ class VueClone {
             this.getElement(this.options.el)
         }
 
-        this.render()
+        render(this.options.el, this.options.data)
     }
 
     getElement(selector) {
@@ -29,27 +31,6 @@ class VueClone {
         }
 
         this.options.el = selectedElements[0]
-    }
-
-    render() {
-        /* eslint-disable no-useless-escape */
-        const rgx = /{{([\w\d\+\*\=\s\/\"\.\:\(\)]*)}}/gm
-        const element = this.options.el
-
-        element.innerHTML = element.innerHTML.replace(rgx, (match) => {
-            if (typeof this.options.data === "undefined") return eval(match)
-
-            Object.entries(this.options.data).forEach((prop) => {
-                match =
-                    "const " +
-                    prop[0] +
-                    "=" +
-                    JSON.stringify(prop[1]) +
-                    ";" +
-                    match
-            })
-            return eval(match)
-        })
     }
 }
 
