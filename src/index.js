@@ -37,6 +37,17 @@ class VueClone {
         const element = this.options.el
 
         element.innerHTML = element.innerHTML.replace(rgx, (match) => {
+            if (typeof this.options.data === "undefined") return eval(match)
+
+            Object.entries(this.options.data).forEach((prop) => {
+                match =
+                    "const " +
+                    prop[0] +
+                    "=" +
+                    JSON.stringify(prop[1]) +
+                    ";" +
+                    match
+            })
             return eval(match)
         })
     }

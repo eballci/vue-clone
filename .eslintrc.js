@@ -10,7 +10,14 @@ module.exports = {
     },
     rules: {
         "semi": [ "error", "never" ],
-        "quotes": [ "error", "double" ],
+        "quotes": [
+            "error",
+            "double",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+         ],
         "brace-style": [ "error", "stroustrup" ],
         "block-spacing": [ "error", "always" ],
         "max-len": [
