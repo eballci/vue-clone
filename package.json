@@ -4,10 +4,11 @@
   "description": "Simple clone of vue",
   "main": "src/index.js",
   "scripts": {
-    "build": "webpack",
-    "test": "npm run lint && npm run test:unit",
+    "build": "npm run lint:production && webpack --mode=production",
+    "test": "npm run lint:development && npm run test:unit",
     "test:unit": "jest test",
-    "lint": "eslint src test",
+    "lint:production": "NODE_ENV=production eslint src",
+    "lint:development": "eslint src test",
     "prepublish": "prettier --write ./src ./test"
   },
   "author": "Emre Balci <emre-balci@outlook.com.tr>",
@@ -22,6 +23,7 @@
     "eslint-plugin-jest": "^24.3.6",
     "jest": "^27.0.6",
     "prettier": "2.3.2",
+    "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.41.0",
     "webpack-cli": "^4.7.2"
   }

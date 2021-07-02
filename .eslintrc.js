@@ -17,7 +17,7 @@ module.exports = {
                 "avoidEscape": true,
                 "allowTemplateLiterals": true
             }
-         ],
+        ],
         "brace-style": [ "error", "1tbs" ],
         "block-spacing": [ "error", "always" ],
         "max-len": [
@@ -26,6 +26,9 @@ module.exports = {
                 "code": 80,
                 "ignoreUrls": true
             }
+        ],
+        "no-console": [
+            process.env.NODE_ENV === "production" ? "error" : "warn"
         ]
     },
     extends: [

@@ -1,4 +1,6 @@
-const path = require("path");
+const path = require("path")
+const webpack = require("webpack")
+const terserPlugin = require("terser-webpack-plugin")
 
 module.exports = {
     entry: "./src/index.js",
@@ -7,7 +9,9 @@ module.exports = {
         sourceMapFilename: "vue-clone.min.map",
         filename: "vue-clone.min.js",
         library: "VueClone",
-        libraryTarget: "umd"
+        libraryTarget: "umd",
+        umdNamedDefine: true,
+        libraryExport: "default"
     },
     module: {
         rules: [
@@ -23,5 +27,17 @@ module.exports = {
             }
         ]
     },
-    mode: "development"
+    plugins: [
+        new webpack.BannerPlugin({
+            banner: `VueClone\nCopyright 2021 Emre BALCI <emre-balci@outlook.com.tr>\nThis code licensed under the MIT license\nfound in https://opensource.org/licenses/MIT`
+        })
+    ],
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new terserPlugin({
+                extractComments: false,
+            })
+        ]
+    }
 }
