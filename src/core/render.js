@@ -4,16 +4,10 @@
  * found in https://opensource.org/licenses/MIT
  */
 
-import { condition } from "./condition"
-import { evalScopeExtender } from "../util/eval-scope-extender"
+import { condition, evaluate, loop } from "./"
 
 export const render = (element, data) => {
-    /* eslint-disable no-useless-escape */
-    const rgx = /{{([\w\d\+\*\=\s\/\"\.\:\(\)]*)}}/gm
-
+    loop(element, data)
     condition(element, data)
-
-    element.innerHTML = element.innerHTML.replace(rgx, (match) => {
-        return evalScopeExtender(match, data)
-    })
+    evaluate(element, data)
 }

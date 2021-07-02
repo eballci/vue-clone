@@ -4,15 +4,15 @@
  * found in https://opensource.org/licenses/MIT
  */
 
-import { evalScopeExtender } from "../util/eval-scope-extender"
+import { evalScopeExtender } from "../util"
 
 export const condition = (element, data) => {
-    Array.from(element.children).forEach((child) => {
-        if (!evalScopeExtender(child.getAttribute("v-if"), data)) {
-            child.remove()
-        } else {
-            child.removeAttribute("v-if")
+    if (evalScopeExtender(element.getAttribute("v-if"), data) === false) {
+        element.remove()
+    } else {
+        element.removeAttribute("v-if")
+        Array.from(element.children).forEach((child) => {
             condition(child, data)
-        }
-    })
+        })
+    }
 }

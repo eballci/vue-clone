@@ -4,33 +4,25 @@
  * found in https://opensource.org/licenses/MIT
  */
 
-import { render } from "./core/render"
+import { render } from "./core"
+import { getElement } from "./util"
 
 class VueClone {
     constructor(options) {
-        this.options = options
-
-        if (typeof this.options.el !== "object") {
-            if (typeof this.options.el !== "string") {
-                throw new TypeError("Type of el has to be string or DOM object")
-            }
-
-            this.getElement(this.options.el)
-        }
-
-        render(this.options.el, this.options.data)
-    }
-
-    getElement(selector) {
-        const selectedElements = document.querySelectorAll(selector)
-
-        if (selectedElements.length != 1) {
+        if (typeof options.el === "undefined") {
             throw new Error(
-                "Please use selector that describes one DOM element."
+                "Element is not provided. VueClone needs element for work."
             )
         }
 
-        this.options.el = selectedElements[0]
+        if (!(options.el instanceof HTMLElement)) {
+            options.el = getElement(options.el)
+        }
+
+        this.options = options
+
+        //what if data is non-Object?
+        render(this.options.el, this.options.data)
     }
 }
 
