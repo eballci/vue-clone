@@ -2,7 +2,7 @@
   "name": "vue-clone",
   "version": "1.0.0",
   "description": "Simple clone of vue",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "webpack",
     "test": "npm run lint && npm run test:unit",
