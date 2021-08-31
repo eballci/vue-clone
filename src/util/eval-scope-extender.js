@@ -16,10 +16,6 @@ export const evalScopeExtender = (initialEval, data) => {
     Object.entries(data).forEach((prop) => {
         initialEval = `var ${prop[0]}=${JSON.stringify(prop[1])};${initialEval}`
     })
-    /*console.log({
-        initialEval,
-        result: eval(initialEval),
-        type: typeof eval(initialEval),
-    })*/
+
     return eval(initialEval)
 }

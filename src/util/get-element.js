@@ -5,9 +5,9 @@
  */
 
 export const getElement = (selector) => {
-    if (typeof selector === "string") {
-        return document.querySelector(selector)
-    }
+    if (typeof selector === "string") return document.querySelector(selector)
+
+    if (selector instanceof HTMLElement) return selector
 
     throw new TypeError("Type of element selector have to be string.")
 }

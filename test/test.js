@@ -188,13 +188,16 @@ it("Did nested complex v-fors work", () => {
         },
     })
     expect(document.body.innerHTML).toBe(
-        "<div><div><div>1</div><div>2</div></div><div><div>3</div><div>4</div></div></div>"
+        "<div><div><div>1</div><div>2</div></div>" +
+            "<div><div>3</div><div>4</div></div></div>"
     )
 })
 
 it("Did conditional and repeatable directions work", () => {
     document.body.innerHTML =
-        "<div v-for='person in persons' v-if='person.active'>{{person.name}}</div>"
+        "<div v-for='person in persons' v-if='person.active'>" +
+        "{{person.name}}" +
+        "</div>"
     new VueClone({
         el: "body",
         data: {

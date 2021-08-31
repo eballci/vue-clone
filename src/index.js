@@ -10,18 +10,21 @@ import { getElement } from "./util"
 class VueClone {
     constructor(options) {
         if (typeof options.el === "undefined") {
-            throw new Error(
+            throw new TypeError(
                 "Element is not provided. VueClone needs element for work."
             )
         }
 
-        if (!(options.el instanceof HTMLElement)) {
-            options.el = getElement(options.el)
+        if (options.data && typeof options.data !== "object") {
+            throw new TypeError(
+                "Data is provided by inproper type. Data should be object."
+            )
         }
+
+        options.el = getElement(options.el)
 
         this.options = options
 
-        //what if data is non-Object?
         render(this.options.el, this.options.data)
     }
 }
