@@ -6,7 +6,6 @@
 
 import VueClone from "../../src/index"
 
-
 it("Was single arithmetic expression evaluated", () => {
     document.body.innerHTML = "{{ 3 + 2 }}"
     new VueClone({ el: document.body })

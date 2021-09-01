@@ -54,7 +54,7 @@ it("Did very complex v-for work", () => {
     })
     expect(document.body.innerHTML).toBe(
         "<div><div>Ahmet</div><div>Mehmet</div>" +
-        "<div>Ali</div><div>Kazım</div></div>"
+            "<div>Ali</div><div>Kazım</div></div>"
     )
 })
 
@@ -89,7 +89,7 @@ it("Did nested complex v-fors work", () => {
     })
     expect(document.body.innerHTML).toBe(
         "<div><div><div>1</div><div>2</div></div>" +
-        "<div><div>3</div><div>4</div></div></div>"
+            "<div><div>3</div><div>4</div></div></div>"
     )
 })
 
