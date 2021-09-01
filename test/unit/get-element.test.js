@@ -14,6 +14,13 @@ it("Did return null by pssing improper string selector", () => {
     expect(getElement("improper")).toBe(null)
 })
 
+it("Did return an element by passing function", () => {
+    const _ = () => {
+        return document.body
+    }
+    expect(getElement(_)).toBe(document.body)
+})
+
 it("Did return an element by passing element", () => {
     expect(getElement(document.body)).toBe(document.body)
 })
