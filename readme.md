@@ -1,7 +1,7 @@
-#Vue-Clone
+# Vue-Clone
 This library created for academic purposes.
 
-###How to use
+### How to use
 
 Import the library
 
@@ -26,15 +26,15 @@ Add some element to your DOM that combines with `el` parameter
 </div>
 ```
 
-##Supported Features
+## Supported Features
 
 This library doesn't support all features of Vue.js
 
-###Directives
+### Directives
 * v-if
 * v-for
 
-##License
+## License
 Copyright 2021 Emre BALCI
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
