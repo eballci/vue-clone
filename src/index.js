@@ -21,6 +21,16 @@ class VueClone {
             )
         }
 
+        if (document.readyState === "complete") {
+            this.start(options)
+        } else {
+            document.addEventListener("readystatechange", () => {
+                this.start(options)
+            })
+        }
+    }
+
+    start(options) {
         options.el = getElement(options.el)
 
         this.options = options
