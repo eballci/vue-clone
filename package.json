@@ -4,7 +4,7 @@
   "description": "Simple clone of vue",
   "main": "src/index.js",
   "scripts": {
-    "build": "npm run lint:production && webpack --mode=production",
+    "build": "npm run prepublish && npm run lint:production && webpack --mode=production",
     "test": "npm run lint:development && npm run test:unit",
     "test:unit": "jest test",
     "lint:production": "SET NODE_ENV=production eslint src",
