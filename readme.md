@@ -5,7 +5,14 @@ This library created for academic purposes.
 
 Import the library
 
-```<script src="./vue-clone.min.js"></script>```
+```
+<script src="./vue-clone.min.js"></script>
+```
+or
+```
+$> npm i vue-clone
+import VueClone from "vue-clone"
+```
 
 Instantiate the VueClone
 

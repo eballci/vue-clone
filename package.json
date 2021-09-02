@@ -1,18 +1,22 @@
 {
-  "name": "@eballci/vue-clone",
+  "name": "vue-clone",
   "version": "1.0.0",
   "description": "Simple clone of vue",
   "main": "src/index.js",
   "scripts": {
-    "build": "npm run prepublish && npm run lint:production && webpack --mode=production",
+    "build": "npm run prepare && npm run lint:production && webpack --mode=production",
     "test": "npm run lint:development && npm run test:unit",
     "test:unit": "jest test",
     "lint:production": "SET NODE_ENV=production eslint src",
     "lint:development": "eslint src test",
-    "prepublish": "prettier --write ./src ./test"
+    "prepare": "prettier --write ./src ./test"
   },
   "author": "Emre Balci <emre-balci@outlook.com.tr>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eballci/vue-clone.git"
+  },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/eslint-parser": "^7.14.7",
