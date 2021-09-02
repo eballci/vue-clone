@@ -1,5 +1,5 @@
 {
-  "name": "vue-clone",
+  "name": "@eballci/vue-clone",
   "version": "1.0.0",
   "description": "Simple clone of vue",
   "main": "src/index.js",
